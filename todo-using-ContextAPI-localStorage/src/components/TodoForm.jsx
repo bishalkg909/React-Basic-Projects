@@ -17,18 +17,19 @@ function TodoForm() {
 
     return (
         <form onSubmit={add} className="flex">
-            <input
-                type="text"
-                placeholder="Write Todo..."
-                className="w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
-                value={todo}
-                onChange={(e) => setTodo(e.target.value)}
-            />
-            <button type="submit" className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">
-                Add
-            </button>
+          <input
+            type="text"
+            placeholder="Add a task..."
+            className="w-full backdrop-blur-md bg-white/10 border border-white/20 rounded-l-lg px-4 py-2 outline-none focus:bg-white/20 transition-all duration-300 text-white placeholder:text-white/50"
+            value={todo}
+            onChange={(e) => setTodo(e.target.value)}
+          />
+          <button type="submit" 
+            className="rounded-r-lg px-6 py-2 bg-white/20 hover:bg-white/30 text-white transition-all duration-300 font-light">
+            Add
+          </button>
         </form>
-    );
+    )
 }
 
 export default TodoForm;

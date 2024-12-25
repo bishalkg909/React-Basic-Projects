@@ -3,6 +3,7 @@ import { TodoProvider } from './contexts';
 import './App.css'
 import TodoForm from './components/TodoForm'
 import TodoItem from './components/TodoItem';
+import bg from './assets/bg.jpg'
 
 
 function App() {
@@ -43,24 +44,20 @@ function App() {
 
   return (
     <TodoProvider value={{todos, addTodo, deleteTodo, updateTodo, toggleComplete}}>
-      <div className="bg-[#172842] min-h-screen py-8">
-          <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
-              <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
-              <div className="mb-4">
-                  {/* Todo form goes here */} 
-                  <TodoForm />
-              </div>
-              <div className="flex flex-wrap gap-y-3">
-                  {/*Loop and Add TodoItem here */}
-                  {todos.map( (todo) => (
-                    <div key={todo.id}
-                    className='w-full'
-                    >
-                      <TodoItem todo={todo}/>
-                    </div>
-                  ))}
-              </div>
+      <div style={{ backgroundImage: `url(${bg})`}} className={`min-h-screen py-8 backdrop-blur-xl`}>
+        <div className="w-full max-w-2xl mx-auto backdrop-blur-lg bg-white/10 rounded-xl px-4 py-3 text-white shadow-2xl">
+          <h1 className="text-3xl font-light text-center mb-8 mt-2">Todos</h1>
+          <div className="mb-4">
+            <TodoForm />
           </div>
+          <div className="flex flex-wrap gap-y-3">
+            {todos.map((todo) => (
+              <div key={todo.id} className='w-full'>
+                <TodoItem todo={todo}/>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </TodoProvider>
   )
