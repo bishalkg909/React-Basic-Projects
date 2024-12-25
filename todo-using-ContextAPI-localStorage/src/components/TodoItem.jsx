@@ -20,7 +20,7 @@ function TodoItem({ todo }) {
         <div
           className={`flex backdrop-blur-md rounded-lg px-4 py-3 gap-x-3 shadow-lg transition-all duration-300 ${
             todo.completed 
-              ? "bg-white/5 text-white/50" 
+              ? "bg-black/50 text-white/50" 
               : "bg-white/10 text-white"
           }`}
         >
